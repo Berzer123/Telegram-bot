@@ -22,7 +22,7 @@ def get_usd(url_crb):
     list = usd.values()
     for i in list:
         list_data.append(i)
-    return list_data[-3], list_data[-1]
+    return list_data[-2]
 
 
 def get_eur(url_crb):
@@ -31,7 +31,7 @@ def get_eur(url_crb):
     list = usd.values()
     for i in list:
         list_data.append(i)
-    return list_data[-3], list_data[-1]
+    return list_data[-2]
 
 usd = get_usd(url_crb)
 eur = get_eur(url_crb)
@@ -54,6 +54,6 @@ def bot_message(message):
         if message.text == 'Рандомное число':
             bot.send_message(message.chat.id, 'Ваши число: ' + str(random.randint(0, 1000)))
         elif message.text == 'Курсы валют':
-            bot.send_message(message.chat.id, f"{usd}")
-            bot.send_message(message.chat.id, f"{eur}")
+            bot.send_message(message.chat.id, 'Курс Доллара: ' f"{usd}")
+            bot.send_message(message.chat.id, 'Курс Евро: ' f"{eur}")
 bot.polling(none_stop = True)
